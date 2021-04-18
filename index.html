@@ -10,10 +10,17 @@
     <body>
         <h1>Javascript More Practice</h1>
         <div class="search-box-container">
-            <input type="text" class="search-box" placeholder="Manga Search"><button class="search-btn">&#x1F50D</button>
+            <div class="inputBox">
+                <input type="text" class="search-box" placeholder="Manga Search">
+                <button class="search-btn" onmouseover="hoverOn()" onmouseout="hoverOff()">&#x1F50D</button>
+            </div>
         </div>
         <div class="anime-container"></div>
-        <div class="results"></div>
+        <div class="extra-details-container">
+            <div class="extra-details">
+                <h3>Testing the box to make CSS</h3>
+            </div>
+        </div>
         <script src="app.js"></script>
     </body>
 </html>
