@@ -34,6 +34,16 @@ h1 {
     height: 3rem;
     font-size: 1.5rem;
 }
+.close-btn {
+    border: 0;
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    left: 90%;
+    top: 2%;
+    position: absolute;
+    
+}
 
 .anime-container {
     display: flex;
@@ -58,10 +68,34 @@ h1 {
 }
 
 .extra-details-container {
+    background-color: black;
     margin: auto;
     margin-top: 1rem;
     text-align: center;
-    border: .2rem solid black;
     width: 75vw;
     height: 80vh;
+    display: none;
+    z-index: 2;
+    position: absolute;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    color: #fff;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+
+    overflow: auto;
+    padding: 2rem 0;
+}
+
+.description {
+    margin: 1rem 5rem 1rem 5rem;
 }
