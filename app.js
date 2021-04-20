@@ -11,6 +11,18 @@ searchBtn.addEventListener('click', getAnime)
 searchBtn.addEventListener('mouseOver', hoverOn)
 searchBtn.addEventListener('mouseOut', hoverOff)
 
+// var names = ['Chloe', 'Jack', 'Peter','undefined'];
+
+// function checkAdult(name) {
+//   return name !== 'undefined';
+// }
+
+// function myFunction() {
+//   document.querySelector(".demo").innerHTML = names.filter(checkAdult);
+//   console.log(names.filter(checkAdult));
+// }
+
+
 // Functions
 function getAnime() {
     fetch(`https://kitsu.io/api/edge/anime?filter[text]=${searchBox.value.trim()}`)
@@ -36,6 +48,16 @@ function getAnime() {
         }
     }
 )}
+
+// Filter anime store for undefined and don't store them
+// var animeStore;
+
+// function checkForUndefined(animeStore) {
+//     return titles.en !== 'undefined';
+// }
+// function myFunction() {
+//   document.getElementById("demo").innerHTML = animeStore.filter(checkForUndefined);
+// }
 
 
 function hoverOn() {
@@ -70,7 +92,6 @@ function getDetails(idx) {
 
 function closeExtraDetails() {
     document.querySelector('.extra-details-container').style.display = 'none';
+    const extraDetailsContainer = document.querySelector('.extra-details-container')
+    extraDetailsContainer.innerHTML = '';
 }
-
-
-
