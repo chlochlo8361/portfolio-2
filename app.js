@@ -11,18 +11,6 @@ searchBtn.addEventListener('click', getAnime)
 searchBtn.addEventListener('mouseOver', hoverOn)
 searchBtn.addEventListener('mouseOut', hoverOff)
 
-// var names = ['Chloe', 'Jack', 'Peter','undefined'];
-
-// function checkAdult(name) {
-//   return name !== 'undefined';
-// }
-
-// function myFunction() {
-//   document.querySelector(".demo").innerHTML = names.filter(checkAdult);
-//   console.log(names.filter(checkAdult));
-// }
-
-
 // Functions
 function getAnime() {
     fetch(`https://kitsu.io/api/edge/anime?filter[text]=${searchBox.value.trim()}`)
@@ -30,17 +18,20 @@ function getAnime() {
     .then(result => {
         let html = document.querySelector('.anime-container');
         if(result.data) {
-            result.data.forEach((item,idx) => {
+            animeStore = result.data.filter((item) => {
+                return item.attributes.titles.en_us !== undefined
+            })
+            animeStore.forEach((item,idx) => {
 
                 animeContainer.innerHTML += `
                     <div class = "anime-img-container">
-                        <h3 class="anime-title">${item.attributes.titles.en}</h3>
+                        <h3 class="anime-title">${item.attributes.titles.en_us}</h3>
                         <img class="anime-img" src = "${item.attributes.posterImage.medium}" alt = "food"></br>
                         <button class="search-btn details-btn" onclick="getDetails(${idx})">Details</button>
                     </div>
                 `;
             })
-            animeStore = result.data;
+
             const detailsBtn = document.querySelector('.details-btn')
             // detailsBtn.addEventListener('mouseOut', hoverOff)
             // detailsBtn.addEventListener('mouseOver', hoverOn)
@@ -48,17 +39,6 @@ function getAnime() {
         }
     }
 )}
-
-// Filter anime store for undefined and don't store them
-// var animeStore;
-
-// function checkForUndefined(animeStore) {
-//     return titles.en !== 'undefined';
-// }
-// function myFunction() {
-//   document.getElementById("demo").innerHTML = animeStore.filter(checkForUndefined);
-// }
-
 
 function hoverOn() {
     searchBtn.style.fontSize = '1.7rem';
