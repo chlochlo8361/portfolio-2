@@ -3,14 +3,27 @@ const searchBox = document.querySelector('.search-box')
 const searchBtn = document.querySelector('.search-btn')
 const image = document.querySelector('.image')
 const animeContainer = document.querySelector('.anime-container')
+const detailsBtn = document.querySelector('.details-btn')
+
 var animeStore;
 
 
 // Event Listeners
 searchBtn.addEventListener('click', getAnime)
-searchBtn.addEventListener('mouseOver', hoverOn)
-searchBtn.addEventListener('mouseOut', hoverOff)
 
+// Hover On/Off functions
+function hoverDetailsOn() {
+    detailsBtn.style.backgroundColor = 'rgb(13, 108, 128);';
+}
+function hoverDetailsOff() {
+    detailsBtn.style.backgroundColor = 'rgb(0, 10, 12)';
+}
+function hoverOn() {
+    searchBtn.style.backgroundColor = 'rgb(95, 202, 221)';
+}
+function hoverOff() {
+    searchBtn.style.backgroundColor = 'rgb(25, 164, 189)';
+}
 // Functions
 function getAnime() {
     fetch(`https://kitsu.io/api/edge/anime?filter[text]=${searchBox.value.trim()}`)
@@ -27,27 +40,15 @@ function getAnime() {
                     <div class = "anime-img-container">
                         <h3 class="anime-title">${item.attributes.titles.en_us}</h3>
                         <img class="anime-img" src = "${item.attributes.posterImage.medium}" alt = "food"></br>
-                        <button class="search-btn details-btn" onclick="getDetails(${idx})">Details</button>
+                        <button class="search-btn details-btn" onclick="getDetails(${idx})" onmouseover="hoverDetailsOn()" onmouseout="hoverDetailsOff()">More Details</button>
                     </div>
                 `;
             })
-
             const detailsBtn = document.querySelector('.details-btn')
-            // detailsBtn.addEventListener('mouseOut', hoverOff)
-            // detailsBtn.addEventListener('mouseOver', hoverOn)
             detailsBtn.addEventListener('click', getDetails)
         }
     }
 )}
-
-function hoverOn() {
-    searchBtn.style.fontSize = '1.7rem';
-    searchBtn.style.backgroundColor = 'rgb(95, 202, 221)';
-}
-function hoverOff() {
-    searchBtn.style.fontSize = '1.5rem';
-    searchBtn.style.backgroundColor = 'rgb(25, 164, 189)';
-}
 
 function getDetails(idx) {    
     // alert("You clicked the details button") 
