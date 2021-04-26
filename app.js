@@ -44,8 +44,6 @@ function getAnime() {
                     </div>
                 `;
             })
-            const detailsBtn = document.querySelector('.details-btn')
-            detailsBtn.addEventListener('click', getDetails)
         }
     }
 )}
@@ -60,7 +58,7 @@ function getDetails(idx) {
                 <button class="close-btn" onclick="closeExtraDetails()">&#10006;</button>
                 <div class="flex-container">
                     <div class="container1">
-                    <h3 class="anime-title">${item.attributes.titles.en}</h3>
+                    <h3 class="anime-title">${item.attributes.titles.en_us}</h3>
                         <img class="anime-img" src = "${item.attributes.posterImage.small}"></br>
                     </div>
                     <div class="container2">
