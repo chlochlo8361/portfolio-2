@@ -38,9 +38,9 @@ function getAnime() {
 
                 animeContainer.innerHTML += `
                     <div class = "anime-img-container">
-                        <h3 class="anime-title">${item.attributes.titles.en_us}</h3>
+                        <h4 class="anime-title">${item.attributes.titles.en_us}</h4>
                         <img class="anime-img" src = "${item.attributes.posterImage.medium}" alt = "food"></br>
-                        <button class="search-btn details-btn" onclick="getDetails(${idx})" onmouseover="hoverDetailsOn()" onmouseout="hoverDetailsOff()">More Details</button>
+                        <button class="search-btn details-btn" onclick="getDetails(${idx})" onmouseover="hoverDetailsOn()" onmouseout="hoverDetailsOff()">More details on ${item.attributes.titles.en_us}</button>
                     </div>
                 `;
             })
