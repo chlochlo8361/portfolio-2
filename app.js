@@ -55,17 +55,21 @@ function getDetails(idx) {
 // };
     const extraDetailsContainer = document.querySelector('.extra-details-container')
     let item = animeStore[idx]
-    extraDetailsContainer.innerHTML += `
+    extraDetailsContainer.innerHTML = `
             <div class = "extra-details">
                 <button class="close-btn" onclick="closeExtraDetails()">&#10006;</button>
-                <h3 class="anime-title">${item.attributes.titles.en}</h3>
-                <img class="anime-img" src = "${item.attributes.posterImage.small}" alt = "food"></br>
-                <p class="description">${item.attributes.description}</p>
-                
+                <div class="flex-container">
+                    <div class="container1">
+                    <h3 class="anime-title">${item.attributes.titles.en}</h3>
+                        <img class="anime-img" src = "${item.attributes.posterImage.small}"></br>
+                    </div>
+                    <div class="container2">
+                        <p class="description">${item.attributes.description}</p>
+                    </div>
+                </div>
             </div>
     `;         
     // const description = document.querySelector('.description')
-    alert("You clicked the details button")
     extraDetailsContainer.style.display = 'block';
     const closeBtn = document.querySelector('.close-btn')
     closeBtn.addEventListener('click', closeExtraDetails)
