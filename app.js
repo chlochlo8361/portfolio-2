@@ -12,11 +12,11 @@ var animeStore;
 searchBtn.addEventListener('click', getAnime)
 
 // Hover On/Off functions
-function hoverDetailsOn() {
-    detailsBtn.style.backgroundColor = 'rgb(13, 108, 128);';
+function hoverDetailsOn(btn) {
+    btn.style.backgroundColor = 'rgb(13, 108, 128)';
 }
-function hoverDetailsOff() {
-    detailsBtn.style.backgroundColor = 'rgb(0, 10, 12)';
+function hoverDetailsOff(btn) {
+    btn.style.backgroundColor = 'rgb(0, 10, 12)';
 }
 function hoverOn() {
     searchBtn.style.backgroundColor = 'rgb(95, 202, 221)';
@@ -34,13 +34,14 @@ function getAnime() {
             animeStore = result.data.filter((item) => {
                 return item.attributes.titles.en_us !== undefined
             })
+            animeContainer.innerHTML = ''
             animeStore.forEach((item,idx) => {
 
                 animeContainer.innerHTML += `
                     <div class = "anime-img-container">
                         <h4 class="anime-title">${item.attributes.titles.en_us}</h4>
                         <img class="anime-img" src = "${item.attributes.posterImage.medium}" alt = "food"></br>
-                        <button class="search-btn details-btn" onclick="getDetails(${idx})" onmouseover="hoverDetailsOn()" onmouseout="hoverDetailsOff()">More details on ${item.attributes.titles.en_us}</button>
+                        <button class="search-btn details-btn" onclick="getDetails(${idx})" onmouseover="hoverDetailsOn(this)" onmouseout="hoverDetailsOff(this)">More details on ${item.attributes.titles.en_us}</button>
                     </div>
                 `;
             })
@@ -53,6 +54,7 @@ function getDetails(idx) {
 // };
     const extraDetailsContainer = document.querySelector('.extra-details-container')
     let item = animeStore[idx]
+    let desc = item.attributes.description ? item.attributes.description : 'No Description Avaliable'
     extraDetailsContainer.innerHTML = `
             <div class = "extra-details">
                 <button class="close-btn" onclick="closeExtraDetails()">&#10006;</button>
@@ -62,7 +64,7 @@ function getDetails(idx) {
                         <img class="anime-img" src = "${item.attributes.posterImage.small}"></br>
                     </div>
                     <div class="container2">
-                        <p class="description">${item.attributes.description}</p>
+                        <p class="description">${desc}</p>
                     </div>
                 </div>
             </div>
