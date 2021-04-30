@@ -56,6 +56,7 @@ h1 {
 }
 .anime-img {
     margin-top: 0.4rem;
+    margin-left: 2rem;
 }
 
 .anime-img-container {
@@ -111,9 +112,11 @@ h1 {
 }
 
 .description {
-    margin: 5.5rem 11rem 0rem 0rem;
     text-align: left;
     font-size: large;
+    margin-top: 5.5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 .flex-container {
     display: flex;
@@ -125,6 +128,37 @@ h1 {
 }
 .container2 {
     flex: 3;
+}
+@media only screen and (max-width: 1290px) {
+    .flex-container {
+        display: block;
+    }
+    .description {
+        margin-left: 5rem;
+        margin-right: 5rem;
+        margin-top: 2rem;
+    }
+    .container1 {
+        margin-top: 1rem;
+    }
+}
+@media only screen and (max-width: 960px) {
+    .flex-container {
+        display: block;
+    }
+    .description {
+        text-align: center;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        margin-top: 2rem;
+        font-size: 1rem;
+    }
+    .container1 {
+        margin-top: 1rem;
+    }
+    .anime-img {
+        margin-left: 0rem;
+    }
 }
 
 @media only screen and (max-width: 440px) {
