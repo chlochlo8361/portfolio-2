@@ -125,6 +125,7 @@ h1 {
 .container1 {
     flex: 2;
     margin-top: 3rem;
+    padding-left: 1rem;
 }
 .container2 {
     flex: 3;
